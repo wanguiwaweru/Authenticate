@@ -1,5 +1,6 @@
 require('dotenv').config()
 const registerRouter = require('./routes/register')
+const loginRouter = require('./routes/login')
 const express = require('express')
 const mongoose = require('mongoose')
 const db = mongoose.connection
@@ -8,6 +9,7 @@ const app = express()
 
 app.use(express.json())
 app.use('/api', registerRouter)
+app.use('/api', loginRouter)
 
 mongoose.connect(process.env.DATABASE_URL,
     {
